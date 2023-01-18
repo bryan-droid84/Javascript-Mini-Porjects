@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+/* reusable variables */
+:root {
+  --primary-color: #22254b;
+  --secondary-color: #373b69;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: var(--primary-color);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+header {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--secondary-color);
+}
+
+.search {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: #fff;
+}
+
+.search::placeholder {
+  color: #dde00b;
+}
+
+.search:focus {
+  outline: none;
+  background: var(--primary-color);
+}
+
+main {
+  /* all the direct child elements within main will be flex items */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie {
+  width: 300px;
+  margin: 1rem;
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  /* will be positioning elements within absolute */
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.movie img {
+  width: 100%;
+}
+
+.movie-info {
+  color: #eee;
+  /* affects child elements within */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 1rem;
+  letter-spacing: 0.5px;
+}
+
+.movie-info h3 {
+  margin-top: 0;
+}
+
+.movie-info span {
+  background-color: var(--primary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+/* if span has a class of green */
+.movie-info span.green {
+  color: lightgreen;
+}
+
+/* if span has a class of orange */
+.movie-info span.orange {
+  color: orange;
+}
+
+/* if span has a class of red */
+.movie-info span.red {
+  color: red;
+}
+
+.overview {
+  background-color: #fff;
+  padding: 2rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  max-height: 100%;
+  /* move it down on the y axis 101% so it is completely out of view */
+  transform: translateY(101%);
+}
+
+/* when hovering over the entire box, bring overview back into view */
+.movie:hover .overview {
+  transform: translateY(0);
+  transition: transform 0.3s ease-in;
+}

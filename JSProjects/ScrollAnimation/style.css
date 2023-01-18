@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  /* remove horizontal scroll bar */
+  overflow-x: hidden;
+}
+
+h1 {
+  margin: 10px;
+}
+
+.box {
+  background-color: #fc8c03;
+  color: #1403fc;
+  /* for displaying the h2 in the centre 
+  horizontally and vertically */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 10px;
+
+  /*h-offset v-offset blur spread color */
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+
+  /* animations on the x-axis */
+  /* move it to the right off screen (use 400% for wide screens) */
+  transform: translateX(400%);
+  /* transition on the transform with a 0.4s with an ease effect */
+  transition: transform 0.4s ease;
+}
+
+/* move all the even boxes off the screen to the left */
+.box:nth-of-type(even) {
+  transform: translateX(-400%);
+}
+
+/* class to be added by JS to show the boxes when scrolling down */
+.box.show {
+  transform: translateX(0);
+}
+
+h2 {
+  font-size: 45px;
+}

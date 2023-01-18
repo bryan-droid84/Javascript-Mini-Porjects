@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #333;
+  color: #222;
+  /* Hide the scroll bar on the x-axis */
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.container {
+  background-color: #fafafa;
+  transform-origin: top left;
+  transition: transform 0.5s linear;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 50px;
+}
+
+/* rotate the who container -20deg when button open clicked  */
+.container.show-nav {
+  transform: rotate(-20deg);
+}
+
+.circle-container {
+  /* Fix the circle container and have it display half off the page from the top left in a fixed position */
+  position: fixed;
+  /* make the circle look like a half circle on the top left handside of the page */
+  top: -100px;
+  left: -100px;
+}
+
+.circle {
+  background-color: #eb6234;
+  height: 200px;
+  width: 200px;
+  /* to make it look like a circle */
+  border-radius: 50%;
+  /* postion relative so the buttons inside can be positioned absolute */
+  position: relative;
+  transition: transform 0.5s linear;
+}
+
+/* When the container has show nav applied to it, style the circle div */
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+
+.circle button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  color: #fff;
+}
+
+/* remove the border on the button */
+.circle button:focus {
+  outline: none;
+}
+
+.circle button#open {
+  left: 60%;
+}
+
+.circle button#close {
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+/* When container has show.nav class applied bring the nav li into its original position on the screen */
+.container.show-nav + nav li {
+  transform: translateX(0);
+  /* transition delay when bringing nav li into view */
+  transition-delay: 0.3s;
+}
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  color: #fff;
+  /* 40px top and bottom, 0 left and right */
+  margin: 40px 0;
+  /* move it left -100% on the x-axis */
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in;
+}
+
+/* create some space between the icons and the text */
+nav ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/* li's after the first li*/
+nav ul li + li {
+  margin-left: 15px;
+  transform: translateX(-150%);
+}
+
+/* li's after the second li*/
+nav ul li + li + li {
+  margin-left: 30px;
+  transform: translateX(-200%);
+}
+
+.content img {
+  max-width: 100%;
+}
+
+.content {
+  max-width: 1000px;
+  /* 50px top and bottom, auto left and right */
+  margin: 50px auto;
+}
+
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: #555;
+  font-style: italic;
+}
+
+.content p {
+  color: #333;
+  line-height: 1.5;
+}

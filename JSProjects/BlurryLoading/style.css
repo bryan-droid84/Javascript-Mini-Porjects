@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu');
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.bg {
+  background: url('https://images.unsplash.com/photo-1628260412297-a3377e45006f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGZ1bm55JTIwaW1hZ2V8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60')
+    no-repeat center center/cover;
+  position: absolute;
+  /* Remove the white edging around the picture when it is blurred */
+  top: -30px;
+  left: -30px;
+  /* Take up the whole viewport */
+  width: calc(100vw + 60px);
+  height: calc(100vh + 60px);
+  /* place behind the  loading text */
+  z-index: -1;
+  filter: blur(0px);
+}
+
+.loading-text {
+  font-size: 50px;
+  color: #fff;
+}

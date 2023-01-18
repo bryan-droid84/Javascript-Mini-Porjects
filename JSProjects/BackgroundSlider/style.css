@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+
+  /* centre on the x and y axis */
+  background-position: center center;
+  background-size: cover;
+  transition: 0.4s ease;
+}
+
+/* placing an overlay on the image */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* take up the full viewport */
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* will create the effect that divs and buttons etc are over the overlay */
+  z-index: -1;
+}
+
+.slider-container {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  height: 70vh;
+  width: 70vw;
+  /* slides within the container are going to be positioned absolute and buttons will be fixed */
+  position: relative;
+  /* prevent anything from going out of the container */
+  overflow: hidden;
+}
+
+.slide {
+  opacity: 0;
+  height: 100vh;
+  width: 100vw;
+  /* center on both x and y axis */
+  background-position: center center;
+  background-size: cover;
+  position: absolute;
+  /* move it closer to the top */
+  top: -15vh;
+  /* move it closer to the left */
+  left: -15vw;
+  transition: 0.4s ease;
+  /* set this so it is always in top */
+  z-index: 1;
+}
+
+/* slide that has the active class on it */
+.slide.active {
+  opacity: 1;
+}
+
+.arrow {
+  position: fixed;
+  background-color: transparent;
+  padding: 20px;
+  font-size: 30px;
+  border: 2px solid #f37106;
+  /* move it 50% from the top */
+  top: 50%;
+  /* this will place it directly in the middle of the slide div */
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #fff;
+}
+
+.arrow:focus {
+  outline: none;
+}
+
+.left-arrow {
+  left: calc(15vw - 65px);
+}
+
+.right-arrow {
+  right: calc(15vw - 65px);
+}
